@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Outputs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Recent Outputs</h1>
+    <div class="recent-images">
+        {% if outputs %}
+            {% for output in outputs %}
+                <div class="output-image">
+                    <img src="{{ url_for('static', filename='uploads/' ~ output) }}" alt="Output Image" width="500">
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No recent outputs found.</p>
+        {% endif %}
+    </div>
+    <button onclick="location.href='/'">Back to Home</button>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/* Import a cool font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+/* General body styling */
+body {
+    font-family: 'Nunito', sans-serif;  /* Change to Nunito for rounder edges */
+    text-align: center;
+    background: linear-gradient(135deg, #7B2CBF, #9D4EDD, #C77DFF); /* Purple gradient */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Center horizontally */
+    color: #fff;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 48px; /* Increase font size */
+    margin: 20px 0 30px; /* Add margin at the top, bottom, and increase bottom margin */
+    color: #D3D3D3; /* Light grayish color */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for the title */
+    text-transform: uppercase; /* Make the title uppercase */
+    font-weight: 800; /* Increased font weight for more boldness */
+    letter-spacing: 1px; /* Add some spacing between letters for a softer look */
+}
+
+/* Navigation buttons styling */
+.nav-buttons {
+    margin: 20px 0; /* Space between the title and buttons */
+}
+
+.nav-buttons button {
+    background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px; /* Space between buttons */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons button:hover {
+    background: linear-gradient(135deg, #7400B8, #9D4EDD);
+    transform: scale(1.05); /* Scale up slightly on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+}
+
+.nav-buttons button:active {
+    transform: scale(0.98);
+}
+
+/* Circular Drag-and-drop container styling */
+#upload-container {
+    border: 3px dashed rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.2);
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Make it a circle */
+    transition: border-color 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    cursor: pointer;
+}
+
+#upload-container:hover {
+    border-color: #C77DFF;
+}
+
+#drag-text {
+    color: #f3f3f3;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(20px);
+}
+
+#upload-container:hover #drag-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smoke effect on hover */
+#upload-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 50%;
+}
+
+#upload-container:hover:before {
+    opacity: 1;
+}
+
+/* Hide the file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Slightly smaller font size */
+    font-weight: bold; /* Make the font bold */
+    text-transform: uppercase; /* Change to uppercase */
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #7400B8, #9D4EDD);
+    transform: scale(1.05); /* Scale up slightly on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Increase shadow on hover */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Styling for output images */
+h2 {
+    margin: 20px 0 10px; /* Margin above and below the heading */
+    font-size: 24px; /* Increase font size for section headings */
+    color: #D3D3D3; /* Light grayish color */
+}
+
+.output-image {
+    background: rgba(255, 255, 255, 0.1); /* Soft background for images */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Padding inside the card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    margin: 20px; /* Margin around each image */
+    transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+.output-image:hover {
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+/* Image styling */
+img {
+    border: 2px solid #fff;
+    margin-top: 20px;
+    border-radius: 10px; /* Rounded corners for images */
+    max-width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}

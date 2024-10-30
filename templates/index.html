@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Image Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Intelligent Image Detection</h1>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button id="homeBtn" onclick="location.href='/'">Home</button>
+        <button id="recentBtn" onclick="location.href='/recent'">Recent Inputs</button>
+        <button id="recentInputsBtn" onclick="location.href='/recent_outputs'">Recent Outputs</button>
+    </div>
+
+    <!-- Drag and Drop area with circle design -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div id="upload-container" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" onclick="triggerFileInput()">
+            <p id="drag-text">Drag and drop your image<br>into this circle</p>
+            <!-- Hidden File Input -->
+            <input type="file" id="fileInput" name="file" onchange="handleFileSelect(event)">
+        </div>
+
+        <button id="uploadBtn" type="submit">Upload Image</button>
+    </form>
+
+    {% if uploaded_image %}
+        <h2>Uploaded Image</h2>
+        <div class="output-image">
+            <img src="{{ url_for('static', filename='uploads/' ~ uploaded_image) }}" alt="Uploaded Image" width="500">
+        </div>
+    {% endif %}
+
+    {% if result_image %}
+        <h2>Detected Objects</h2>
+        <div class="output-image">
+            <img src="{{ url_for('static', filename='uploads/' ~ result_image) }}" alt="Result Image" width="500">
+        </div>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
